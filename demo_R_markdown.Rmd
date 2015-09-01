@@ -1,0 +1,35 @@
+---
+title: "demo_R_markdown"
+author: "yaoshengjie"
+date: "Thursday, August 27, 2015"
+output: html_document
+---
+
+Load the dplyr and ggplot2 packages for data wrangling and visualisation respectively.
+
+```{r}
+library(dplyr)
+library(ggplot2)
+```
+
+Allow R to access and import gapminder file.
+
+```{r}
+gapminder = read.csv("https://stat.duke.edu/~mc301/data/gapminder.csv")
+```
+
+Filter data to find data in year 2007.
+
+```{r}
+gap07 = gapminder %>%
+  filter(year == 2007)
+```
+
+Plot relationship between GDP per cap and life exoectancy
+```{r}
+qplot(x = gdpPercap, y = lifeExp, color = continent, data = gap07)
+```
+
+
+
+
